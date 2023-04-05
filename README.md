@@ -11,11 +11,6 @@ This is a simple notes app built with React and Django.
 7. Nginx handles the incoming requests and routes them to the appropriate endpoint in the application.
 8. The application responds to the requests, and the response is sent back through nginx to the user/browser.
 
-# Requirements
-
-1. Python 3.9
-2. Node.js
-3. React
 
 # Installation
 
@@ -49,9 +44,46 @@ This is a simple notes app built with React and Django.
     $docker run -d -p 8000:8000 notes-app:latest
     (To check the running container: $docker ps)
 
-# Nginx
+# Nginx Configurations
 
 Install Nginx reverse proxy to make this application available
 
-`sudo apt-get update`
-`sudo apt install nginx`
+1. create a new configuration file for our app
+    $sudo nano /etc/nginx/sites-available/notes-app.conf
+
+   Add the below script to the file notes-app.conf:
+
+        server {
+            listen 80;
+            server_name yourdomain.com_or_public_ip_address_of_the_ec2;
+
+            location / {
+                proxy_pass http://public_ip_or_yourdomain.com:8000; # Replace the details as per your configuration details
+                proxy_set_header Host $host;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            }
+
+            location /static/ {
+                alias /path/to/static/files; # Replace the staticfiles location. 
+            }
+        }
+
+2. create a symbolic link to enable the configuration:
+    $sudo ln -s /etc/nginx/sites-available/notes-app.conf /etc/nginx/sites-enabled/
+
+3. You can test the configuration by:
+    $sudo nginx -t
+
+4. Reload nginx if there are no errors. Recheck the configurations if there are any errors.
+    $sudo systemctl reload nginx
+
+5. Now you can access the app in the browser.
+    To access: http://publicip_or_yourdomain.com:8000
+
+
+
+    Cheers :) you have successfully configured the app. Reach me out if you have any doubts.
+
+
+

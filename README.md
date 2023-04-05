@@ -4,10 +4,10 @@ This is a simple notes app built with React and Django.
 # workflow of the project
 1. The code for the application is stored in a GitHub repository.
 2. The developer creates a Dockerfile to define the image for the application.
-3. The Dockerfile is built into a Docker image and stored locally
+3. The Dockerfile is built into a Docker image and stored in EC2. 
 4. The Docker container is started on the EC2 instance using the docker run command.
 5. The container runs the application, and nginx is used as a reverse proxy to manage traffic to the application.
-6. The user/browser sends HTTP/HTTPS requests to the EC2 instance's public IP address or DNS name, which are then routed  through the internet to nginx running in the Docker container.
+6. The user/browser sends HTTP/HTTPS requests to the EC2 instance's public IP address or DNS name, which are then routed  through the internet to nginx.
 7. Nginx handles the incoming requests and routes them to the appropriate endpoint in the application.
 8. The application responds to the requests, and the response is sent back through nginx to the user/browser.
 
@@ -83,7 +83,5 @@ Install Nginx reverse proxy to make this application available
 
 
 
-    Cheers :) you have successfully configured the app. Reach me out if you have any doubts.
 
-
-
+Cheers :smile: you have successfully configured the app. Reach me out if you have any doubts.

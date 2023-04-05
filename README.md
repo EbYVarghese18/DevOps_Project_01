@@ -84,4 +84,4 @@ Install Nginx reverse proxy to make this application available
 
 
 
-Cheers :smile: you have successfully configured the app. Reach me out if you have any doubts.
+Cheers :smile: you have successfully configured the app. Reach me out if you have any doubts :v::v::v:

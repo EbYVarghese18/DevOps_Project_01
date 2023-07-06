@@ -75,10 +75,10 @@ Install Nginx reverse proxy to make this application available
 3. You can test the configuration by:
     $sudo nginx -t
 
-4. Reload nginx if there are no errors. Recheck the configurations if there are any errors.
+4. Reload nginx:
     $sudo systemctl reload nginx
 
-5. Now you can access the app in the browser.
+5. Now you can access the app in the browser:
     To access: http://publicip_or_yourdomain.com:8000
 
 

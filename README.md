@@ -27,7 +27,7 @@ This is a simple notes app built with React and Django.
         (to check the docker status: $systemctl status docker)
         once the installation of docker is completed, we have to give the permission to user
         $sudo usermod -aG docker $USER
-    - reboot the system
+    - Logout and login back 
 
 2. Clone the repository
 
